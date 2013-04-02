@@ -1,0 +1,42 @@
+==== Regional definitions
+The following definition files are included in this installation:
+
+* holidays/regions/at
+* holidays/regions/au
+* holidays/regions/basecamp
+* holidays/regions/br
+* holidays/regions/ca
+* holidays/regions/ch
+* holidays/regions/cz
+* holidays/regions/de
+* holidays/regions/dk
+* holidays/regions/el
+* holidays/regions/es
+* holidays/regions/europe
+* holidays/regions/federal_reserve
+* holidays/regions/fi
+* holidays/regions/fr
+* holidays/regions/gb
+* holidays/regions/hr
+* holidays/regions/hu
+* holidays/regions/ie
+* holidays/regions/is
+* holidays/regions/it
+* holidays/regions/jp
+* holidays/regions/li
+* holidays/regions/mx
+* holidays/regions/nerc
+* holidays/regions/nl
+* holidays/regions/no
+* holidays/regions/north_america
+* holidays/regions/nyse
+* holidays/regions/nz
+* holidays/regions/pl
+* holidays/regions/pt
+* holidays/regions/scandinavia
+* holidays/regions/se
+* holidays/regions/united_nations
+* holidays/regions/ups
+* holidays/regions/us
+* holidays/regions/ve
+* holidays/regions/za

@@ -115,22 +115,24 @@ module Holidays
   #   require 'holidays/#{module_name.downcase}'
   #
   # All the definitions are available at https://github.com/alexdunae/holidays
-  module #{module_name} # :nodoc:
-    def self.defined_regions
-      [:#{regions.flatten.uniq.join(', :')}]
-    end
+  module Regions
+    module #{module_name} # :nodoc:
+      def self.defined_regions
+        [:#{regions.flatten.uniq.join(', :')}]
+      end
 
-    def self.holidays_by_month
-      {
-        #{month_strs.join(",\n")}
-      }
+      def self.holidays_by_month
+        {
+          #{month_strs.join(",\n")}
+        }
+      end
     end
   end
 
 #{method_str}
 end
 
-Holidays.merge_defs(Holidays::#{module_name}.defined_regions, Holidays::#{module_name}.holidays_by_month)
+Holidays.merge_defs(Holidays::Regions::#{module_name}.defined_regions, Holidays::Regions::#{module_name}.holidays_by_month)
 EOM
 
 

@@ -55,7 +55,7 @@ module Holidays
   WEEKS = {:first => 1, :second => 2, :third => 3, :fourth => 4, :fifth => 5, :last => -1, :second_last => -2, :third_last => -3}
   MONTH_LENGTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   DAY_SYMBOLS = Date::DAYNAMES.collect { |n| n.downcase.intern }
-  DEFINITION_PATH = File.expand_path(File.dirname(__FILE__) + '/holidays/')
+  DEFINITION_PATH = File.expand_path(File.dirname(__FILE__) + '/holidays/regions/')
 
   class Holiday
     attr_reader :name, :date, :regions
@@ -351,17 +351,17 @@ private
     regions.delete_if do |reg|
       if reg.to_s =~ /_$/
         prefix = reg.to_s.split('_').first
-        raise UnknownRegionError unless @@regions.include?(prefix.to_sym) or begin require "holidays/#{prefix}"; rescue LoadError; false; end
+        raise UnknownRegionError unless @@regions.include?(prefix.to_sym) or begin require "holidays/regions/#{prefix}"; rescue LoadError; false; end
         regions << @@regions.select { |dr| dr.to_s =~ Regexp.new("^#{reg}") }
         true
       end
     end
 
     regions.flatten!
-    
-    require "holidays/north_america" if regions.include?(:us) # special case for north_america/US cross-linking
 
-    raise UnknownRegionError unless regions.all? { |r| r == :any or @@regions.include?(r) or begin require "holidays/#{r.to_s}"; rescue LoadError; false; end }
+    require "holidays/regions/north_america" if regions.include?(:us) # special case for north_america/US cross-linking
+
+    raise UnknownRegionError unless regions.all? { |r| r == :any or @@regions.include?(r) or begin require "holidays/regions/#{r.to_s}"; rescue LoadError; false; end }
     regions
   end
 

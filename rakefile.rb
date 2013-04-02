@@ -63,7 +63,7 @@ namespace :defs do
       files.uniq!
 
       module_src, test_src = parse_holiday_defs(region, files)
-      File.open("lib/holidays/#{region.downcase.to_s}.rb","w") do |file|
+      File.open("lib/holidays/regions/#{region.downcase.to_s}.rb","w") do |file|
         file.puts module_src
       end
       unless test_src.empty?
@@ -77,13 +77,13 @@ namespace :defs do
 
   desc 'Build the definition manifest.'
   task :manifest do
-    File.open("lib/holidays/MANIFEST","w") do |file|
+    File.open("lib/holidays/regions/MANIFEST","w") do |file|
       file.puts <<-EOH
 ==== Regional definitions
 The following definition files are included in this installation:
 
   EOH
-      FileList.new('lib/holidays/*.rb').each do |str|
+      FileList.new('lib/holidays/regions/*.rb').each do |str|
         file.puts('* ' + str.gsub(/^lib\/|\.rb$/, ''))
       end
     end
