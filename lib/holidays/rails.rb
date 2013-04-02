@@ -1,12 +1,16 @@
 module Holidays
   class Holiday
     module Rails
-      def to_key
-        [parameterize(name)]
+      extend ActiveSupport::Concern
+
+      module ClassMethods
+        def model_name
+          ActiveModel::Name.new(Holidays::Holiday)
+        end
       end
 
-      def self.model_name
-        ActiveModel::Name.new(Holidays::Holiday)
+      def to_key
+        [parameterize(name)]
       end
 
       def param_key
