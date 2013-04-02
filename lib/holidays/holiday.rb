@@ -17,5 +17,9 @@ module Holidays
       else nil
       end
     end
+
+    def <=>(other)
+      date <=> other.date
+    end
   end
 end
