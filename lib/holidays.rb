@@ -57,6 +57,26 @@ module Holidays
   DAY_SYMBOLS = Date::DAYNAMES.collect { |n| n.downcase.intern }
   DEFINITION_PATH = File.expand_path(File.dirname(__FILE__) + '/holidays/')
 
+  class Holiday
+    attr_reader :name, :date, :regions
+
+    def initialize(options = {})
+      @date    = options[:date]
+      @name    = options[:name]
+      @regions = options[:regions]
+    end
+
+    # Backwards compatibility with the hashes
+    def [](key)
+      case key
+      when :name       then name
+      when :date       then date
+      when :regions    then regions
+      else nil
+      end
+    end
+  end
+
   # Get all holidays on a given date.
   #
   # [<tt>date</tt>]     A Date object.
@@ -170,7 +190,7 @@ module Holidays
           end
 
           if date.between?(start_date, end_date)
-            holidays << {:date => date, :name => h[:name], :regions => h[:regions]}
+            holidays << Holiday.new(:date => date, :name => h[:name], :regions => h[:regions])
           end
 
         end
