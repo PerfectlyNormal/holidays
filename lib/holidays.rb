@@ -60,6 +60,8 @@ module Holidays
   class Holiday
     attr_reader :name, :date, :regions
 
+    include Holidays::Holiday::Rails if defined?(Rails)
+
     def initialize(options = {})
       @date    = options[:date]
       @name    = options[:name]
