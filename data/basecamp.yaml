@@ -1,0 +1,54 @@
+# Holidays BaseCamp cares about for course planning.
+# http://www.atlantia.no/
+#
+# Updated: 2013-04-02
+#   generic region instead of customer-specific
+#
+# Updated: 2011-04-16.
+#   added more days of easter
+#   added "første nyttårsdag"
+---
+months:
+  0:
+  - name: Skjærtorsdag
+    regions: [basecamp]
+    function: easter(year)-3
+  - name: Langfredag
+    regions: [basecamp]
+    function: easter(year)-2
+  - name: Påskeaften
+    regions: [basecamp]
+    function: easter(year)-1
+  - name: 1. påskedag
+    regions: [basecamp]
+    function: easter(year)
+  - name: 2. påskedag
+    regions: [basecamp]
+    function: easter(year)+1
+  - name: Kristi himmel&shy;farts&shy;dag
+    regions: [basecamp]
+    function: easter(year)+39
+  - name: Pinse
+    regions: [basecamp]
+    function: easter(year)+49
+  1:
+  - name: 1. nyttårsdag
+    regions: [basecamp]
+    mday: 1
+  5:
+  - name: 17. mai
+    regions: [basecamp]
+    mday: 17
+  12:
+  - name: Jul
+    regions: [basecamp]
+    mday: 24
+  - name: 1. juledag
+    regions: [basecamp]
+    mday: 25
+  - name: 2. juledag
+    regions: [basecamp]
+    mday: 26
+  - name: Nyttårsaften
+    regions: [basecamp]
+    mday: 31
