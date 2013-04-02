@@ -89,19 +89,3 @@ The following definition files are included in this installation:
     end
   end
 end
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "holidays"
-    gemspec.summary = "A collection of Ruby methods to deal with statutory and other holidays.  You deserve a holiday!"
-    gemspec.description = "A collection of Ruby methods to deal with statutory and other holidays.  You deserve a holiday!"
-    gemspec.email = "code@dunae.ca"
-    gemspec.homepage = "https://github.com/alexdunae/holidays"
-    gemspec.version = Holidays::VERSION
-    gemspec.authors = ["Alex Dunae"]
-    gemspec.add_development_dependency 'rdoc', '>= 2.4.2'
-  end
-rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
-end
